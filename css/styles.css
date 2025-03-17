@@ -1,0 +1,166 @@
+/* General */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espaciado entre los elementos (logos y nav) */
+    background: linear-gradient(135deg, #004aad, #0073e6); /* Fondo con degradado */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Logos */
+header .logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espaciado entre los logos */
+}
+
+/* Logos */
+header .logos img {
+    max-width: 350px; /* Aumenta el tamaño máximo de los logos */
+    height: auto; /* Mantiene la proporción de los logos */
+    transition: transform 0.3s ease; /* Animación al pasar el mouse */
+}
+
+header .logos img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    header .logos img {
+        max-width: 250px; /* Reduce el tamaño máximo de los logos */
+        height: auto; /* Mantiene la proporción de los logos */
+    }
+
+    header .logos {
+        flex-wrap: wrap; /* Permite que los logos se apilen si es necesario */
+        gap: 10px; /* Reduce el espacio entre los logos */
+    }
+
+    header {
+        padding: 10px; /* Reduce el padding del header en pantallas pequeñas */
+    }
+
+    header nav ul {
+        flex-direction: column; /* Apila los ítems del menú verticalmente */
+        gap: 10px; /* Reduce el espacio entre los ítems del menú */
+    }
+
+    header nav ul li a {
+        font-size: 0.9rem; /* Reduce el tamaño del texto del menú */
+        padding: 8px 15px; /* Ajusta el padding de los enlaces */
+    }
+}
+
+/* Nav */
+header nav ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    display: flex; /* Alinea los ítems horizontalmente */
+    gap: 20px; /* Espaciado entre los ítems */
+    justify-content: center;
+}
+
+header nav ul li a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: white; /* Color del texto */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente al pasar el mouse */
+}
+
+
+/* Main container */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.container h1 {
+    font-size: 2rem;
+    color: #004aad;
+    margin-bottom: 20px;
+}
+
+.container p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Banner */
+img[src*="banner_duti.jpeg"] {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Call-to-action button */
+button.cta {
+    background: #004aad;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button.cta:hover {
+    background: #003580;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #004aad;
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+/* Banner */
+img[src*="banner_duti.jpeg"] {
+    width: 100%; /* Ajusta el ancho al contenedor padre */
+    max-width: 1200px; /* Máximo ancho igual al de la tarjeta */
+    margin: 20px auto; /* Centra la imagen */
+    display: block; /* Asegura que sea un bloque */
+    border-radius: 8px; /* Bordes redondeados para consistencia */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para estética */
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 1200px) {
+    .container {
+        margin: 10px; /* Agrega margen alrededor del contenedor */
+        padding: 15px; /* Ajusta el padding interno */
+    }
+}
