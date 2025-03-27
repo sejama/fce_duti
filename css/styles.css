@@ -15,7 +15,7 @@ header {
     justify-content: center;
     align-items: center;
     gap: 20px; /* Espaciado entre los elementos (logos y nav) */
-    background: linear-gradient(135deg, #004aad, #0073e6); /* Fondo con degradado */
+    background: linear-gradient(135deg, #4484c5, #6791bb); /* Fondo con degradado */
     padding: 20px;
     text-align: center;
 }
@@ -25,7 +25,7 @@ header .logos {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Espaciado entre los logos */
+    gap: 10px; /* Espaciado entre los logos */
 }
 
 /* Logos */
@@ -39,49 +39,29 @@ header .logos img:hover {
     transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
 }
 
-/* Responsivo para pantallas pequeñas */
-@media (max-width: 768px) {
-    header .logos img {
-        max-width: 250px; /* Reduce el tamaño máximo de los logos */
-        height: auto; /* Mantiene la proporción de los logos */
-    }
-
-    header .logos {
-        flex-wrap: wrap; /* Permite que los logos se apilen si es necesario */
-        gap: 10px; /* Reduce el espacio entre los logos */
-    }
-
-    header {
-        padding: 10px; /* Reduce el padding del header en pantallas pequeñas */
-    }
-
-    header nav ul {
-        flex-direction: column; /* Apila los ítems del menú verticalmente */
-        gap: 10px; /* Reduce el espacio entre los ítems del menú */
-    }
-
-    header nav ul li a {
-        font-size: 0.9rem; /* Reduce el tamaño del texto del menú */
-        padding: 8px 15px; /* Ajusta el padding de los enlaces */
-    }
-}
-
 /* Nav */
 header nav ul {
     list-style: none; /* Elimina los puntos de la lista */
     padding: 0;
+    margin: 0;
     display: flex; /* Alinea los ítems horizontalmente */
-    gap: 20px; /* Espaciado entre los ítems */
-    justify-content: center;
+    gap: 15px; /* Espaciado entre los ítems */
+    justify-content: center; /* Centra los ítems horizontalmente */
+    flex-wrap: wrap; /* Permite que los ítems se ajusten en varias líneas si es necesario */
+}
+
+header nav ul li {
+    margin: 0;
 }
 
 header nav ul li a {
     text-decoration: none; /* Elimina el subrayado */
     color: white; /* Color del texto */
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     transition: background 0.3s ease;
+    font-size: 1rem; /* Tamaño del texto */
 }
 
 header nav ul li a:hover {
@@ -141,7 +121,7 @@ button.cta:hover {
 footer {
     text-align: center;
     padding: 10px;
-    background: #004aad;
+    background: #0073e6;
     color: white;
     font-size: 0.9rem;
     margin-top: 20px;
@@ -155,6 +135,40 @@ img[src*="banner_duti.jpeg"] {
     display: block; /* Asegura que sea un bloque */
     border-radius: 8px; /* Bordes redondeados para consistencia */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para estética */
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    header {
+        padding: 10px; /* Ajusta el padding del header */
+    }
+
+    header .logos {
+        flex-wrap: nowrap; /* Evita que los logos se apilen */
+        justify-content: space-around; /* Espaciado uniforme entre los logos */
+        gap: 10px; /* Espaciado reducido entre los logos */
+    }
+
+    header .logos img {
+        max-width: 245px; /* Reduce el tamaño de los logos */
+        height: auto; /* Mantiene la proporción de los logos */
+    }
+
+    header nav ul {
+        flex-wrap: wrap; /* Permite que los ítems se ajusten en varias líneas */
+        justify-content: center; /* Centra los ítems horizontalmente */
+        gap: 10px; /* Espaciado entre los ítems */
+    }
+
+    header nav ul li {
+        flex: 1 1 40%; /* Cada ítem ocupa el 45% del ancho, ajustándose en dos filas */
+        text-align: center; /* Centra el texto de cada ítem */
+    }
+
+    header nav ul li a {
+        font-size: 0.9rem; /* Reduce el tamaño del texto del menú */
+        padding: 8px 10px; /* Ajusta el padding de los enlaces */
+    }
 }
 
 /* Responsivo para pantallas pequeñas */
