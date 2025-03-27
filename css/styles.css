@@ -140,17 +140,17 @@ img[src*="banner_duti.jpeg"] {
 /* Responsivo para pantallas pequeñas */
 @media (max-width: 768px) {
     header {
-        padding: 10px; /* Ajusta el padding del header */
+        padding: 15px; /* Ajusta el padding del header */
     }
 
     header .logos {
         flex-wrap: nowrap; /* Evita que los logos se apilen */
-        justify-content: space-around; /* Espaciado uniforme entre los logos */
+        justify-content: center; /* Espaciado uniforme entre los logos */
         gap: 10px; /* Espaciado reducido entre los logos */
     }
 
     header .logos img {
-        max-width: 245px; /* Reduce el tamaño de los logos */
+        max-width: 200px; /* Reduce el tamaño de los logos */
         height: auto; /* Mantiene la proporción de los logos */
     }
 
