@@ -1,180 +1,124 @@
-/* General */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+
+.header-content {
+    width: 100%; /* Ancho completo del contenedor */
+    height: auto; /* Altura automática para adaptarse al contenido */
+    background-color: #2e8cc2; /* Color de fondo gris claro */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaciado entre filas */
+    align-items: center
 }
 
-/* Header */
-header {
+.row {
     display: flex;
-    flex-direction: column; /* Alinea los elementos en columna */
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Espaciado entre los elementos (logos y nav) */
-    background: linear-gradient(135deg, #4484c5, #6791bb); /* Fondo con degradado */
-    padding: 20px;
-    text-align: center;
 }
 
-/* Logos */
-header .logos {
+.header-title {
+    width: 55%;
+    padding: 10px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+.header-title h1 {
+    font-family: 'Arial', sans-serif; /* Cambia la fuente a Arial */
+    font-weight: bold; /* Cambia el peso de la fuente a negrita */
+    font-size: 1.5rem;
+    color: #fff; /* Color de texto blanco */
+    margin: 0;
+    word-wrap: break-word; /* Permite que las palabras largas se dividan */
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+.header-logos {
+    width: 45%;
+    min-height: auto;
     display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Espaciado entre los logos */
+    gap: 10px;
 }
 
-/* Logos */
-header .logos img {
-    max-width: 350px; /* Aumenta el tamaño máximo de los logos */
-    height: auto; /* Mantiene la proporción de los logos */
-    transition: transform 0.3s ease; /* Animación al pasar el mouse */
+.header-logos img {
+    width: 50%;
+    height: auto;
 }
 
-header .logos img:hover {
-    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
-}
-
-/* Nav */
-header nav ul {
-    list-style: none; /* Elimina los puntos de la lista */
-    padding: 0;
-    margin: 0;
-    display: flex; /* Alinea los ítems horizontalmente */
-    gap: 15px; /* Espaciado entre los ítems */
-    justify-content: center; /* Centra los ítems horizontalmente */
-    flex-wrap: wrap; /* Permite que los ítems se ajusten en varias líneas si es necesario */
-}
-
-header nav ul li {
-    margin: 0;
-}
-
-header nav ul li a {
-    text-decoration: none; /* Elimina el subrayado */
-    color: white; /* Color del texto */
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-    font-size: 1rem; /* Tamaño del texto */
-}
-
-header nav ul li a:hover {
-    background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente al pasar el mouse */
-}
-
-
-/* Main container */
-.container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    text-align: center;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-.container h1 {
-    font-size: 2rem;
-    color: #004aad;
-    margin-bottom: 20px;
-}
-
-.container p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-/* Banner */
-img[src*="banner_duti.jpeg"] {
+.header-logo{
     width: 100%;
     height: auto;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Call-to-action button */
-button.cta {
-    background: #004aad;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.header-nav {
+    display: flex;
 }
 
-button.cta:hover {
-    background: #003580;
+.header-nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 10px;
-    background: #0073e6;
-    color: white;
-    font-size: 0.9rem;
-    margin-top: 20px;
+.header-nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
 }
 
-/* Banner */
-img[src*="banner_duti.jpeg"] {
-    width: 100%; /* Ajusta el ancho al contenedor padre */
-    max-width: 1200px; /* Máximo ancho igual al de la tarjeta */
-    margin: 20px auto; /* Centra la imagen */
-    display: block; /* Asegura que sea un bloque */
-    border-radius: 8px; /* Bordes redondeados para consistencia */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para estética */
+.header-nav a:hover {
+    color: #fff; /* Cambia el color al pasar el mouse */
+}
+.header-nav li {
+    margin: 0 10px 0 10px; /* Espaciado entre los elementos de la lista */
 }
 
-/* Responsivo para pantallas pequeñas */
+footer{
+    background-color: #2e8cc2; /* Color de fondo gris claro */
+    color: #fff; /* Color de texto blanco */
+    text-align: center; /* Centra el texto horizontalmente */
+    padding: 10px; /* Espaciado interno */
+    width: 100%; /* Ancho completo */
+    position: absolute; /* Posición relativa para el footer */
+    bottom: 0; /* Alinea al fondo de la página */
+}
+
 @media (max-width: 768px) {
-    header {
-        padding: 15px; /* Ajusta el padding del header */
+    .header-title h1 {
+        font-size: 1.2rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
     }
-
-    header .logos {
-        flex-wrap: nowrap; /* Evita que los logos se apilen */
-        justify-content: center; /* Espaciado uniforme entre los logos */
-        gap: 10px; /* Espaciado reducido entre los logos */
+    .header-logos img {
+        width: 80%; /* Cambia el tamaño de la imagen en pantallas pequeñas */
     }
-
-    header .logos img {
-        max-width: 200px; /* Reduce el tamaño de los logos */
-        height: auto; /* Mantiene la proporción de los logos */
-    }
-
-    header nav ul {
-        flex-wrap: wrap; /* Permite que los ítems se ajusten en varias líneas */
-        justify-content: center; /* Centra los ítems horizontalmente */
-        gap: 10px; /* Espaciado entre los ítems */
-    }
-
-    header nav ul li {
-        flex: 1 1 40%; /* Cada ítem ocupa el 45% del ancho, ajustándose en dos filas */
-        text-align: center; /* Centra el texto de cada ítem */
-    }
-
-    header nav ul li a {
-        font-size: 0.9rem; /* Reduce el tamaño del texto del menú */
-        padding: 8px 10px; /* Ajusta el padding de los enlaces */
+    .header-nav ul {
+        flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+        align-items: center; /* Centra los elementos de la lista */
     }
 }
 
-/* Responsivo para pantallas pequeñas */
-@media (max-width: 1200px) {
-    .container {
-        margin: 10px; /* Agrega margen alrededor del contenedor */
-        padding: 15px; /* Ajusta el padding interno */
+@media (max-width: 500px) {
+    .header-title h1 {
+        font-size: 1rem; /* Tamaño de fuente más pequeño en pantallas muy pequeñas */
+    }
+    .header-logos img {
+        width: 90%; /* Cambia el tamaño de la imagen en pantallas muy pequeñas */
+    }
+    .header-nav ul {
+        flex-direction: column; /* Cambia la dirección a columna en pantallas muy pequeñas */
+        align-items: center; /* Centra los elementos de la lista */
     }
 }
