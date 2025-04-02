@@ -1,4 +1,8 @@
 
+html {
+    scroll-behavior: smooth; /* Habilita desplazamiento suave */
+}
+
 .header-content {
     width: 100%; /* Ancho completo del contenedor */
     height: auto; /* Altura automática para adaptarse al contenido */
@@ -87,14 +91,41 @@
     margin: 0 10px 0 10px; /* Espaciado entre los elementos de la lista */
 }
 
+.container {
+    padding: 50px 20px; /* Espaciado interno */
+    margin: 20px 0; /* Espaciado entre secciones */
+    background-color: #f9f9f9; /* Fondo claro para diferenciar secciones */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.container:nth-child(even) {
+    background-color: #e9e9e9; /* Alterna colores de fondo */
+}
+
 footer{
     background-color: #2e8cc2; /* Color de fondo gris claro */
     color: #fff; /* Color de texto blanco */
     text-align: center; /* Centra el texto horizontalmente */
     padding: 10px; /* Espaciado interno */
     width: 100%; /* Ancho completo */
-    position: absolute; /* Posición relativa para el footer */
+    /*position: absolute;  Posición relativa para el footer */
     bottom: 0; /* Alinea al fondo de la página */
+}
+
+
+
+@media (min-width: 1200px) {
+    .header-title {
+        width: 100%; /* Ancho completo en pantallas pequeñas */
+         /* Espaciado reducido */
+    }
+    .header-title h1 {
+        font-size: 2.5rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        padding: 0 0 0 150px
+    }
+    .header-logos img {
+        width: 70%; /* Cambia el tamaño de la imagen en pantallas pequeñas */
+    }
 }
 
 @media (max-width: 768px) {
@@ -105,8 +136,16 @@ footer{
         width: 80%; /* Cambia el tamaño de la imagen en pantallas pequeñas */
     }
     .header-nav ul {
-        flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+        
         align-items: center; /* Centra los elementos de la lista */
+    }
+
+    .header-nav ul li {
+        margin: 0 5px; /* Espaciado reducido entre los elementos de la lista */
+    }
+
+    .header-nav ul a {
+        font-size: 0.7rem; /* Tamaño de fuente más pequeño en pantallas muy pequeñas */
     }
 }
 
@@ -118,7 +157,10 @@ footer{
         width: 90%; /* Cambia el tamaño de la imagen en pantallas muy pequeñas */
     }
     .header-nav ul {
-        flex-direction: column; /* Cambia la dirección a columna en pantallas muy pequeñas */
         align-items: center; /* Centra los elementos de la lista */
+    }
+
+    .header-nav ul a {
+        font-size: 0.7rem; /* Tamaño de fuente más pequeño en pantallas muy pequeñas */
     }
 }
