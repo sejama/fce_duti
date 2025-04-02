@@ -142,6 +142,7 @@ footer{
 
     .header-nav ul li {
         margin: 0 5px; /* Espaciado reducido entre los elementos de la lista */
+        text-align: center;
     }
 
     .header-nav ul a {
@@ -158,9 +159,15 @@ footer{
     }
     .header-nav ul {
         align-items: center; /* Centra los elementos de la lista */
+        justify-content: center; /* Centra los elementos de la lista */
+    }
+
+    .header-nav ul li {
+        margin: 0 5px; /* Espaciado reducido entre los elementos de la lista */
+        text-align: center;
     }
 
     .header-nav ul a {
-        font-size: 0.7rem; /* Tamaño de fuente más pequeño en pantallas muy pequeñas */
+        font-size: 0.75rem; /* Tamaño de fuente más pequeño en pantallas muy pequeñas */
     }
 }
