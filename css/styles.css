@@ -92,10 +92,11 @@ html {
 }
 
 .container {
-    padding: 50px 20px; /* Espaciado interno */
-    margin: 20px 0; /* Espaciado entre secciones */
-    background-color: #f9f9f9; /* Fondo claro para diferenciar secciones */
-    border-radius: 8px; /* Bordes redondeados */
+    display: none; /* Oculta todas las secciones por defecto */
+}
+
+#inicio {
+    display: block; /* Muestra la sección inicial */
 }
 
 .container:nth-child(even) {

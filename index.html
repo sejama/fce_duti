@@ -27,11 +27,11 @@
                 <div class="header-nav">
                     <nav>
                         <ul>
-                            <li><a href="#inicio">Inicio</a></li>
-                            <li><a href="#sobre-la-jornada">Sobre la jornada</a></li>
-                            <li><a href="#presentacion-trabajos">Presentación de Trabajos</a></li>
-                            <li><a href="#inscripcion">Inscripción</a></li>
-                            <li><a href="#proximas-jornadas">Próximas Jornadas</a></li>
+                            <li><a href="#inicio" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+                            <li><a href="#sobre-la-jornada" onclick="mostrarSeccion('sobre-la-jornada')">Sobre la jornada</a></li>
+                            <li><a href="#presentacion-trabajos" onclick="mostrarSeccion('presentacion-trabajos')">Presentación de Trabajos</a></li>
+                            <li><a href="#inscripcion" onclick="mostrarSeccion('inscripcion')">Inscripción</a></li>
+                            <li><a href="#proximas-jornadas" onclick="mostrarSeccion('proximas-jornadas')">Próximas Jornadas</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -78,4 +78,24 @@
     </div>
     </footer>
 </body>
+<script>
+    function mostrarSeccion(id) {
+        // Oculta todas las secciones
+        const secciones = document.querySelectorAll('.container');
+        secciones.forEach(seccion => {
+            seccion.style.display = 'none';
+        });
+
+        // Muestra la sección seleccionada
+        const seccionSeleccionada = document.getElementById(id);
+        if (seccionSeleccionada) {
+            seccionSeleccionada.style.display = 'block';
+        }
+    }
+
+    // Muestra la sección inicial al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+        mostrarSeccion('inicio');
+    });
+</script>
 </html>
