@@ -3,6 +3,14 @@ html {
     scroll-behavior: smooth; /* Habilita desplazamiento suave */
 }
 
+body {
+    max-width: 1200px; /* Ancho máximo recomendado */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    padding: 0 20px; /* Espaciado interno opcional para evitar que el contenido toque los bordes */
+    background-color: #ffffff; /* Fondo blanco o el color que prefieras */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
 .header-content {
     width: 100%; /* Ancho completo del contenedor */
     height: auto; /* Altura automática para adaptarse al contenido */
@@ -92,6 +100,12 @@ html {
 }
 
 .container {
+    max-width: 1200px; /* Ancho máximo recomendado */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    padding: 20px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Fondo claro para diferenciar */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
     display: none; /* Oculta todas las secciones por defecto */
 }
 
@@ -130,6 +144,11 @@ footer{
 }
 
 @media (max-width: 768px) {
+    .container {
+        max-width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+        padding: 10px; /* Reduce el espaciado interno */
+    }
+
     .header-title h1 {
         font-size: 1.2rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
     }
