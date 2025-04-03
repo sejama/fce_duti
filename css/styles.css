@@ -144,6 +144,12 @@ footer{
 }
 
 @media (max-width: 768px) {
+
+    body {
+        width: 100%;
+        padding: 0;
+    }
+    
     .container {
         max-width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
         padding: 10px; /* Reduce el espaciado interno */
