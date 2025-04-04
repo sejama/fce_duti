@@ -27,75 +27,70 @@
                 <div class="header-nav">
                     <nav>
                         <ul>
-                            <li><a href="#inicio" onclick="mostrarSeccion('inicio')">Inicio</a></li>
-                            <li><a href="#sobre-la-jornada" onclick="mostrarSeccion('sobre-la-jornada')">Sobre la jornada</a></li>
-                            <li><a href="#presentacion-trabajos" onclick="mostrarSeccion('presentacion-trabajos')">Presentación de Trabajos</a></li>
-                            <li><a href="#inscripcion" onclick="mostrarSeccion('inscripcion')">Inscripción</a></li>
-                            <li><a href="#proximas-jornadas" onclick="mostrarSeccion('proximas-jornadas')">Próximas Jornadas</a></li>
+                            <li><a href="#inicio" onclick="cargarSeccion('inicio.html')">Inicio</a></li>
+                            <li>
+                                <a href="#sobre-la-jornada" onclick="toggleSubmenu(event)">Sobre la jornada</a>
+                                <ul class="submenu">
+                                    <li><a href="#destinatarios" onclick="cargarSeccion('sobre-la-jornada-destinatarios.html')">Destinatarios</a></li>
+                                    <li><a href="#objetivos" onclick="cargarSeccion('sobre-la-jornada-objetivos.html')">Objetivos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#presentacion-trabajos" onclick="cargarSeccion('presentacion-trabajos.html')">Presentación de Trabajos</a></li>
+                            <li><a href="#inscripcion" onclick="cargarSeccion('inscripcion.html')">Inscripción</a></li>
+                            <li><a href="#proximas-jornadas" onclick="cargarSeccion('proximas-jornadas.html')">Próximas Jornadas</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <div id="inicio" class="container">
-        <div class="content">
-            <h2>Bienvenidos a DUTI 2025</h2>
-            <p>Las Jornadas de Docentes Universitarios de Sistemas y Tecnologías de la Información (DUTI) son un espacio de encuentro y reflexión sobre la enseñanza y el aprendizaje en el ámbito de la informática y las tecnologías de la información.</p>
-        </div>
-    </div>
-
-    <div id="sobre-la-jornada" class="container">
-        <div class="content">
-            <h2>Sobre la jornada</h2>
-            <p>Descripción detallada sobre la jornada.</p>
-        </div>
-    </div>
-
-    <div id="presentacion-trabajos" class="container">
-        <div class="content">
-            <h2>Presentación de Trabajos</h2>
-            <p>Información sobre cómo presentar trabajos.</p>
-        </div>
-    </div>
-
-    <div id="inscripcion" class="container">
-        <div class="content">
-            <h2>Inscripción</h2>
-            <p>Detalles sobre el proceso de inscripción.</p>
-        </div>
-    </div>
-
-    <div id="proximas-jornadas" class="container">
-        <div class="content">
-            <h2>Próximas Jornadas</h2>
-            <p>Información sobre las próximas ediciones de DUTI.</p>
-        </div>
-    </div>
-    <div class="row">
+    <main id="contenido-dinamico" class="content">
+        <!-- Aquí se cargará el contenido dinámico -->
+    </main>
     <footer>
-        <p>&copy; 2025 DUTI. Todos los derechos reservados.</p>
-    </div>
+        <div class="row">
+            <p>&copy; 2025 DUTI. Todos los derechos reservados.</p>
+        </div>
     </footer>
-</body>
-<script>
-    function mostrarSeccion(id) {
-        // Oculta todas las secciones
-        const secciones = document.querySelectorAll('.container');
-        secciones.forEach(seccion => {
-            seccion.style.display = 'none';
-        });
-
-        // Muestra la sección seleccionada
-        const seccionSeleccionada = document.getElementById(id);
-        if (seccionSeleccionada) {
-            seccionSeleccionada.style.display = 'block';
+    <script>
+        function toggleSubmenu(event) {
+            event.preventDefault();
+            const submenu = event.target.nextElementSibling;
+            if (submenu.style.display === "block") {
+                submenu.style.display = "none";
+            } else {
+                submenu.style.display = "block";
+            }
         }
-    }
-
-    // Muestra la sección inicial al cargar la página
-    document.addEventListener('DOMContentLoaded', () => {
-        mostrarSeccion('inicio');
-    });
-</script>
+    
+        function cargarSeccion(archivo) {
+            // Cerrar cualquier submenú abierto
+            const submenus = document.querySelectorAll('.submenu');
+            submenus.forEach(submenu => {
+                submenu.style.display = "none";
+            });
+    
+            // Cargar la sección seleccionada
+            fetch(archivo)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al cargar la sección');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    document.getElementById('contenido-dinamico').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error(error);
+                    document.getElementById('contenido-dinamico').innerHTML = '<p>Error al cargar el contenido.</p>';
+                });
+        }
+    
+        // Cargar la sección inicial al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            cargarSeccion('inicio.html');
+        });
+    </script>
+</body>
 </html>

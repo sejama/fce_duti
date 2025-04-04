@@ -74,6 +74,8 @@ body {
     align-items: center;
 }
 
+
+
 .header-nav {
     display: flex;
 }
@@ -97,6 +99,41 @@ body {
 }
 .header-nav li {
     margin: 0 10px 0 10px; /* Espaciado entre los elementos de la lista */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li .submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li:hover .submenu {
+    display: block;
+}
+
+nav ul li .submenu li {
+    padding: 10px;
+}
+
+nav ul li .submenu li a {
+    text-decoration: none;
+    color: #333;
 }
 
 .container {
@@ -144,12 +181,6 @@ footer{
 }
 
 @media (max-width: 768px) {
-
-    body {
-        width: 100%;
-        padding: 0;
-    }
-    
     .container {
         max-width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
         padding: 10px; /* Reduce el espaciado interno */
