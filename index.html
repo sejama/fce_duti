@@ -8,11 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <div class="conteiner">
         <div class="header-content">
             <div class="row">
                 <div class="header-title">
-                    <h1>XIX Jornadas de Docentes Universitarios de Sistemas y Tecnologías de la Información (DUTI)</h1>
+                    <h1>XIX Jornadas de Docentes Universitarios de Sistemas y Tecnologías de la Información</h1>
                 </div>
                 <div class="header-logos">
                     <div class="header-logo">
@@ -23,35 +23,53 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row-nav">
                 <div class="header-nav">
                     <nav>
                         <ul>
                             <li><a href="#inicio" onclick="cargarSeccion('inicio.html')">Inicio</a></li>
                             <li>
-                                <a href="#sobre-la-jornada" onclick="toggleSubmenu(event)">Sobre la jornada</a>
+                                <a href="#sobre-la-jornada" onclick="toggleSubmenu(event)">La jornada</a>
                                 <ul class="submenu">
-                                    <li><a href="#destinatarios" onclick="cargarSeccion('sobre-la-jornada-destinatarios.html')">Destinatarios</a></li>
-                                    <li><a href="#objetivos" onclick="cargarSeccion('sobre-la-jornada-objetivos.html')">Objetivos</a></li>
+                                    <li><a href="#sede" onclick="cargarSeccion('laJornada_sede.html')">Sede y Cómite Organizador</a></li>
+                                    <li><a href="#interesAcademico" onclick="cargarSeccion('laJornada_interesAcademico.html')">Interés Académico</a></li>
+                                    <li><a href="#programa" onclick="cargarSeccion('laJornada_programa.html')">Programa</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#presentacion-trabajos" onclick="cargarSeccion('presentacion-trabajos.html')">Presentación de Trabajos</a></li>
-                            <li><a href="#inscripcion" onclick="cargarSeccion('inscripcion.html')">Inscripción</a></li>
+                            <li>
+                                <a href="#areasTematicas" onclick="toggleSubmenu(event)">Presentación de Trabajos</a>
+                                <ul class="submenu">
+                                    <li><a href="#areasTematicas" onclick="cargarSeccion('presentacionTrabajo_areaTematica.html')">Áreas Temáticas</a></li>
+                                    <li><a href="#modalidadPresentacion" onclick="cargarSeccion('modalidadPresentacion.html')">Modalidades de Presentación</a></li>
+                                    <li><a href="#fechas" onclick="cargarSeccion('fechas.html')">Fechas</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#formatoTrabajo" onclick="toggleSubmenu(event)">Formato de Trabajos</a>
+                                <ul class="submenu">
+                                    <li><a href="#resumenExtendido" onclick="cargarSeccion('resumenExtendido.html')">Resumen Extendido</a></li>
+                                    <li><a href="#trabajofinal" onclick="cargarSeccion('trabajofinal.html')">Trabajo Final</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#proximas-jornadas" onclick="cargarSeccion('proximas-jornadas.html')">Próximas Jornadas</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
-    </header>
-    <main id="contenido-dinamico" class="content">
-        <!-- Aquí se cargará el contenido dinámico -->
-    </main>
-    <footer>
-        <div class="row">
-            <p>&copy; 2025 DUTI. Todos los derechos reservados.</p>
+        <div>
+            <main id="contenido-dinamico" class="content mt-5 pt-5">
+                <!-- Aquí se cargará el contenido dinámico -->
+            </main>
         </div>
-    </footer>
+        <footer>
+            <div class="row">
+                <p>&copy; 2025 DUTI. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+    
+    
     <script>
         function toggleSubmenu(event) {
             event.preventDefault();
