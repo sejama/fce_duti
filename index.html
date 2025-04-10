@@ -40,7 +40,7 @@
                                 <a href="#areasTematicas" onclick="toggleSubmenu(event)">Presentación de Trabajos</a>
                                 <ul class="submenu">
                                     <li><a href="#areasTematicas" onclick="cargarSeccion('presentacionTrabajo_areaTematica.html')">Áreas Temáticas</a></li>
-                                    <li><a href="#modalidadPresentacion" onclick="cargarSeccion('modalidadPresentacion.html')">Modalidades de Presentación</a></li>
+                                    <li><a href="#modalidadPresentacion" onclick="cargarSeccion('presentacionTrabajo_modalidadPresentacion.html')">Modalidades de Presentación</a></li>
                                     <li><a href="#fechas" onclick="cargarSeccion('fechas.html')">Fechas</a></li>
                                 </ul>
                             </li>
@@ -109,6 +109,23 @@
         document.addEventListener('DOMContentLoaded', () => {
             cargarSeccion('inicio.html');
         });
+    </script>
+    <script>
+        function toggleContent(button) {
+            const targetId = button.getAttribute('data-target');
+            const content = document.getElementById(targetId);
+            if (content) {
+                if (content.style.display === "none") {
+                    content.style.display = "block";
+                    button.textContent = "Mostrar menos";
+                } else {
+                    content.style.display = "none";
+                    button.textContent = "Mostrar más";
+                }
+            } else {
+                console.error(`No se encontró el contenido con id: ${targetId}`);
+            }
+        }
     </script>
 </body>
 </html>
