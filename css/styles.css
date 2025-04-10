@@ -49,6 +49,14 @@ body {
     text-align: center; /* Centra el texto dentro del contenedor */
 }
 
+.header-fecha {
+    flex: 0 0 auto; /* Ocupa poco espacio */
+    text-align: center;
+    font-size: 0.85rem;
+    color: #fff;
+    margin: auto 10px;
+}
+
 .header-logos {
     width: 45%;
     min-height: auto;
