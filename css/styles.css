@@ -206,7 +206,7 @@ table {
     }
     .header-title h1 {
         font-size: 2.5rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-        padding: 0 0 0 150px
+        padding: 0.5rem 0 0 0.5rem
     }
     .header-fecha h2 {
         font-size: 1.2rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
