@@ -50,9 +50,10 @@ body {
 }
 
 .header-fecha {
+    font-family: 'Arial', sans-serif; /* Cambia la fuente a Arial */
     flex: 0 0 auto; /* Ocupa poco espacio */
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #fff;
     margin: auto 10px;
 }
@@ -177,6 +178,22 @@ footer{
 .li_content {
     padding-bottom: 10px;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
 
 
 
