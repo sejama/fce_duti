@@ -135,10 +135,6 @@ nav ul li .submenu {
     margin: 0;
 }
 
-nav ul li .submenu {
-    z-index: 1000; /* Asegura que el submenú esté por encima de otros elementos */
-}
-
 nav ul li:hover .submenu {
     display: block;
 }
@@ -150,10 +146,11 @@ nav ul li .submenu li {
 nav ul li .submenu li a {
     text-decoration: none;
     color: #fff;
+    
 }
 
 nav ul li .submenu li a:hover {
-    color: #007bff; /* Cambia el color al pasar el mouse */
+    color: #333; /* Cambia el color al pasar el mouse */
 }
 
 .container {
