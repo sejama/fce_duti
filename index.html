@@ -34,7 +34,7 @@
                         <ul>
                             <li><a href="#inicio" onclick="cargarSeccion('inicio.html')">Inicio</a></li>
                             <li>
-                                <a href="#sobre-la-jornada" onclick="toggleSubmenu(event)">La jornada</a>
+                                <a href="#sobre-la-jornada">La jornada</a>
                                 <ul class="submenu">
                                     <li><a href="#sede" onclick="cargarSeccion('laJornada_sede.html')">Sede y Cómite Organizador</a></li>
                                     <li><a href="#interesAcademico" onclick="cargarSeccion('laJornada_interesAcademico.html')">Interés Académico</a></li>
@@ -42,7 +42,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#areasTematicas" onclick="toggleSubmenu(event)">Presentación de Trabajos</a>
+                                <a href="#areasTematicas">Presentación de Trabajos</a>
                                 <ul class="submenu">
                                     <li><a href="#areasTematicas" onclick="cargarSeccion('presentacionTrabajo_areaTematica.html')">Áreas Temáticas</a></li>
                                     <li><a href="#modalidadPresentacion" onclick="cargarSeccion('presentacionTrabajo_modalidadPresentacion.html')">Modalidades de Presentación</a></li>
@@ -51,7 +51,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#formatoTrabajo" onclick="toggleSubmenu(event)">Formato de Trabajos</a>
+                                <a href="#formatoTrabajo">Formato de Trabajos</a>
                                 <ul class="submenu">
                                     <li><a href="#resumenExtendido" onclick="cargarSeccion('formatoTrabajo_resumenExtendido.html')">Resumen Extendido</a></li>
                                     <li><a href="#trabajoFinal" onclick="cargarSeccion('formatoTrabajo_trabajoFinal.html')">Trabajo Final</a></li>
@@ -76,22 +76,9 @@
     
     
     <script>
-        function toggleSubmenu(event) {
-            event.preventDefault();
-            const submenu = event.target.nextElementSibling;
-            if (submenu.style.display === "block") {
-                submenu.style.display = "none";
-            } else {
-                submenu.style.display = "block";
-            }
-        }
     
         function cargarSeccion(archivo) {
-            // Cerrar cualquier submenú abierto
-            const submenus = document.querySelectorAll('.submenu');
-            submenus.forEach(submenu => {
-                submenu.style.display = "none";
-            });
+
     
             // Cargar la sección seleccionada
             fetch(archivo)
