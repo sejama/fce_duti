@@ -73,12 +73,24 @@
             </div>
         </footer>
     </div>
-    
-    
     <script>
-
+        document.querySelectorAll('nav ul li > a').forEach(menuItem => {
+    menuItem.addEventListener('click', event => {
+        event.preventDefault();
+        const submenu = menuItem.nextElementSibling;
+        if (submenu) {
+            submenu.classList.toggle('visible');
+        }
+    });
+});
 
         function cargarSeccion(archivo) {
+        
+            // Ocultar todos los submenús eliminando la clase 'visible'
+            const submenus = document.querySelectorAll('.submenu');
+            submenus.forEach(submenu => {
+                submenu.classList.remove('visible');
+            });
             // Cargar la sección seleccionada
             fetch(archivo)
                 .then(response => {
@@ -100,8 +112,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             cargarSeccion('inicio.html');
         });
-    </script>
-    <script>
+
         function toggleContent(button) {
             const targetId = button.getAttribute('data-target');
             const content = document.getElementById(targetId);

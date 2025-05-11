@@ -84,9 +84,10 @@ body {
     align-items: center;
 }
 .row-nav {
-    background-color: #1095e2;
+    background-color: #546ace;
     display: flex;
     width: 100%;
+    padding: 7px 0 7px 0;
 }
 .header-nav {
     display: flex;
@@ -127,12 +128,20 @@ nav ul li .submenu {
     display: none;
     position: absolute;
     left: 0;
-    top: 100%;
-    background-color: #1095e2;
+    /* top: 100%; */
+    background-color: #546ace;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.submenu {
+    display: none; /* Oculta los submenús por defecto */
+}
+
+.submenu .visible {
+    display: block; /* Muestra el submenú cuando tiene la clase 'visible' */
 }
 
 nav ul li:hover .submenu {
