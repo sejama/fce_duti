@@ -32,9 +32,9 @@
                 <div class="header-nav">
                     <nav>
                         <ul>
-                            <li><a href="#inicio" onclick="cargarSeccion('inicio.html')">Inicio</a></li>
+                            <li><a href="#inicio" onclick="cargarSeccion('inicio.html')">Nuestro Recorrido</a></li>
                             <li>
-                                <a href="#sobre-la-jornada">La jornada</a>
+                                <a href="#sobre-la-jornada">DUTI 2025</a>
                                 <ul class="submenu">
                                     <li><a href="#sede" onclick="cargarSeccion('laJornada_sede.html')">Sede y Cómite Organizador</a></li>
                                     <li><a href="#interesAcademico" onclick="cargarSeccion('laJornada_interesAcademico.html')">Interés Académico</a></li>
@@ -50,13 +50,8 @@
                                     <li><a href="#fechas" onclick="cargarSeccion('presentacionTrabajo_fecha.html')">Fechas</a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#formatoTrabajo">Formato de Trabajos</a>
-                                <ul class="submenu">
-                                    <li><a href="#resumenExtendido" onclick="cargarSeccion('formatoTrabajo_resumenExtendido.html')">Resumen Extendido</a></li>
-                                    <li><a href="#trabajoFinal" onclick="cargarSeccion('formatoTrabajo_trabajoFinal.html')">Trabajo Final</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="#formatoTrabajo" onclick="cargarSeccion('formatoTrabajo_trabajoFinal.html')">Formato de Trabajos</a></li>
+                            <li><a href="#envio" onclick="cargarSeccion('envio.html')">Envío de trabajos</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -74,18 +69,8 @@
         </footer>
     </div>
     <script>
-        document.querySelectorAll('nav ul li > a').forEach(menuItem => {
-    menuItem.addEventListener('click', event => {
-        event.preventDefault();
-        const submenu = menuItem.nextElementSibling;
-        if (submenu) {
-            submenu.classList.toggle('visible');
-        }
-    });
-});
 
         function cargarSeccion(archivo) {
-        
             // Ocultar todos los submenús eliminando la clase 'visible'
             const submenus = document.querySelectorAll('.submenu');
             submenus.forEach(submenu => {
