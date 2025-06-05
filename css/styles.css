@@ -32,6 +32,13 @@ body {
     align-items: center;
 }
 
+/* CSS */
+.header-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .header-title {
     width: 55%;
     padding: 10px;
