@@ -94,7 +94,7 @@
   border-radius: 6px;
 }
 
-.container-lt h2, p{
+.container-lt h2, .container-lt p{
   color: #fff;
   margin-top: 0;
 }
