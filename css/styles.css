@@ -22,6 +22,24 @@ body {
     align-items: center
 }
 
+.boton-flotante {
+  position: fixed; /* Fija el botón en la pantalla */
+  right: 15px; /* Posición desde el lado derecho */
+  bottom: 15px; /* Posición desde el fondo */
+  background-color: #2e8cc2; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 15px 25px; /* Espaciado interior */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Elimina el subrayado */
+  font-size: 1rem; /* Tamaño de fuente */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Indica que es clicable */
+}
+
+.boton-flotante:hover {
+  background-color: #546ace; /* Color de fondo al pasar el cursor */
+}
+
 .row {
     display: flex;
     width: 100%;
