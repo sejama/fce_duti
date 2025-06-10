@@ -37,7 +37,7 @@
             <div class="row-nav">
                 <div class="header-nav">
                     <nav>
-                        <ul>
+                        <ul class="menu-izq">
                             <li><a href="#inicio" onclick="cargarSeccion('inicio.html')">Nuestro Recorrido</a></li>
                             <li>
                                 <a href="#sobre-la-jornada">DUTI 2025</a>
@@ -59,12 +59,12 @@
                             <li><a href="#formatoTrabajo" onclick="cargarSeccion('formatoTrabajo_trabajoFinal.html')">Formato de Trabajos</a></li>
                             <li><a href="#envio" onclick="cargarSeccion('envio.html')">Envío de trabajos</a></li>
                         </ul>
+                         <ul class="menu-der">
+                            <li><a href="https://duti.unr.edu.ar/index.php/revista" target="_blank" rel="noopener noreferrer">Revista DUTI</a></li>
+                        </ul>
                     </nav>
                 </div>
             </div>
-        </div>
-        <div class="div-boton-flotante">
-            <button class="boton-flotante">Revista DUTI</button>
         </div>
         <div>
             <main id="contenido-dinamico" class="content mt-5 pt-5">
@@ -83,7 +83,7 @@
             // Ocultar todos los submenús eliminando la clase 'visible'
             const submenus = document.querySelectorAll('.submenu');
             submenus.forEach(submenu => {
-                submenu.classList.remove('visible');
+                submenu.classList.add('force-hide');
             });
             // Cargar la sección seleccionada
             fetch(archivo)
@@ -101,6 +101,16 @@
                     document.getElementById('contenido-dinamico').innerHTML = '<p>Error al cargar el contenido.</p>';
                 });
         }
+
+        // Quitar la clase force-hide cuando el mouse sale del menú
+        document.querySelectorAll('.menu-izq > li').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const submenu = item.querySelector('.submenu');
+                if (submenu) {
+                    submenu.classList.remove('force-hide');
+                }
+            });
+        });
     
         // Cargar la sección inicial al cargar la página
         document.addEventListener('DOMContentLoaded', () => {

@@ -118,9 +118,22 @@ body {
     display: flex;
 }
 
-.header-nav ul {
+.header-nav nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-izq {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-der {
+    display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -165,12 +178,12 @@ nav ul li .submenu {
     display: none; /* Oculta los submenús por defecto */
 }
 
-.submenu .visible {
-    display: block; /* Muestra el submenú cuando tiene la clase 'visible' */
-}
-
 nav ul li:hover .submenu {
     display: block;
+}
+
+.submenu.force-hide {
+    display: none !important;
 }
 
 nav ul li .submenu li {
