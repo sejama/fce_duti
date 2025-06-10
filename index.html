@@ -11,40 +11,20 @@
 <body>
     <div class="conteiner">
         <div class="header-content">
-            <div class="row">
-                <!-- 
-                <div class="header-title">
-                    <h1>XIX Jornadas de Docentes Universitarios de Sistemas y Tecnologías de la Información</h1>
-                </div>
-                <div class="header-fecha">
-                    <h2>2, 3 y 4</h2>
-                    <h2>OCT</h2>
-                    <h2>2025</h2>
-                </div>
-                <div class="header-logos">
-                    <div class="header-logo">
-                        <img src="./img/logo_duti.png" alt="DUTI 2025" class="logo-duti">
-                    </div>
-                    <div class="header-logo">
-                        <img src="./img/logos_FCE_UNL.png" alt="Facultad de Ciencias Económicas - UNL" class="logo-fce">
-                    </div>
-                </div>
-                -->
-                <header class="header-image">
+            <div class="header-image">
                     <img src="img/header1600-nuevo.png" alt="XIX Jornadas FCE-DUTI 2025">
-                </header>
             </div>
             <div class="row-nav">
                 <div class="header-nav">
                     <nav>
                         <ul class="menu-izq">
-                            <li><a href="#inicio" onclick="cargarSeccion('inicio.html')">Nuestro Recorrido</a></li>
+                            <li><a href="#inicio" onclick="cargarSeccion('inicio.html')">Quienes Somos</a></li>
                             <li>
-                                <a href="#sobre-la-jornada">DUTI 2025</a>
+                                <a href="#sobre-la-jornada">Cómite Organizador</a>
                                 <ul class="submenu">
                                     <li><a href="#sede" onclick="cargarSeccion('laJornada_sede.html')">Sede y Cómite Organizador</a></li>
                                     <li><a href="#interesAcademico" onclick="cargarSeccion('laJornada_interesAcademico.html')">Interés Académico</a></li>
-                                    <li><a href="#programa" onclick="cargarSeccion('laJornada_programa.html')">Programa</a></li>
+                                    <!-- <li><a href="#programa" onclick="cargarSeccion('laJornada_programa.html')">Programa</a></li> -->
                                 </ul>
                             </li>
                             <li>
@@ -52,14 +32,12 @@
                                 <ul class="submenu">
                                     <li><a href="#areasTematicas" onclick="cargarSeccion('presentacionTrabajo_areaTematica.html')">Áreas Temáticas</a></li>
                                     <li><a href="#modalidadPresentacion" onclick="cargarSeccion('presentacionTrabajo_modalidadPresentacion.html')">Modalidades de Presentación</a></li>
+                                    <li><a href="#formatoTrabajo" onclick="cargarSeccion('presentacionTrabajo_formatoTrabajo.html')">Formato de Trabajos</a></li>
                                     <li><a href="#modalidadEvaluacion" onclick="cargarSeccion('presentacionTrabajo_evaluacion.html')">Evaluación</a></li>
-                                    <li><a href="#fechas" onclick="cargarSeccion('presentacionTrabajo_fecha.html')">Fechas</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#formatoTrabajo" onclick="cargarSeccion('formatoTrabajo_trabajoFinal.html')">Formato de Trabajos</a></li>
-                            <li><a href="#envio" onclick="cargarSeccion('envio.html')">Envío de trabajos</a></li>
                         </ul>
-                         <ul class="menu-der">
+                        <ul class="menu-der">
                             <li><a href="https://duti.unr.edu.ar/index.php/revista" target="_blank" rel="noopener noreferrer">Revista DUTI</a></li>
                         </ul>
                     </nav>
@@ -70,6 +48,7 @@
             <main id="contenido-dinamico" class="content mt-5 pt-5">
                 <!-- Aquí se cargará el contenido dinámico -->
             </main>
+            <div id="aside-container"></div>
         </div>
         <footer>
             <div class="row">
@@ -78,6 +57,21 @@
         </footer>
     </div>
     <script>
+
+        function cargarAside() {
+            fetch('presentacionTrabajo_aside.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('No se pudo cargar el aside');
+                    return response.text();
+                })
+                .then(html => {
+                    document.getElementById('aside-container').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error al cargar el aside:', error);
+                    document.getElementById('aside-container').innerHTML = '';
+                });
+        }
 
         function cargarSeccion(archivo) {
             // Ocultar todos los submenús eliminando la clase 'visible'
@@ -95,10 +89,20 @@
                 })
                 .then(html => {
                     document.getElementById('contenido-dinamico').innerHTML = html;
+                    // Mostrar aside solo en secciones específicas
+                    if (archivo.startsWith('presentacionTrabajo_')) {
+                        cargarAside();
+                        document.getElementById('aside-container').style.display = 'block';
+                    } else {
+                        document.getElementById('aside-container').innerHTML = '';
+                        document.getElementById('aside-container').style.display = 'none';
+                    }
                 })
                 .catch(error => {
                     console.error(error);
                     document.getElementById('contenido-dinamico').innerHTML = '<p>Error al cargar el contenido.</p>';
+                    document.getElementById('aside-container').innerHTML = '';
+                    document.getElementById('aside-container').style.display = 'none';
                 });
         }
 
