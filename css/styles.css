@@ -7,7 +7,6 @@ html {
 body {
     max-width: 1200px; /* Ancho máximo recomendado */
     margin: 0 auto; /* Centra el contenido horizontalmente */
-    padding: 0 20px; /* Espaciado interno opcional para evitar que el contenido toque los bordes */
     background-color: #ffffff; /* Fondo blanco o el color que prefieras */
     box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
 }
@@ -18,26 +17,7 @@ body {
     background-color: #2e8cc2; /* Color de fondo gris claro */
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espaciado entre filas */
     align-items: center
-}
-
-.boton-flotante {
-  position: fixed; /* Fija el botón en la pantalla */
-  right: 15px; /* Posición desde el lado derecho */
-  bottom: 15px; /* Posición desde el fondo */
-  background-color: #2e8cc2; /* Color de fondo */
-  color: white; /* Color del texto */
-  padding: 15px 25px; /* Espaciado interior */
-  text-align: center; /* Alineación del texto */
-  text-decoration: none; /* Elimina el subrayado */
-  font-size: 1rem; /* Tamaño de fuente */
-  border-radius: 5px; /* Bordes redondeados */
-  cursor: pointer; /* Indica que es clicable */
-}
-
-.boton-flotante:hover {
-  background-color: #546ace; /* Color de fondo al pasar el cursor */
 }
 
 .row {
@@ -254,6 +234,36 @@ table {
     background-color: #dddddd;
   }
 
+  .main-columns {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content {
+    flex: 0 1 85%;
+   
+}
+
+aside {
+    flex: 0 1 15%;
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+    
+}
+/* Responsive: en pantallas chicas, apilar */
+@media (max-width: 700px) {
+    .main-columns {
+        flex-direction: column;
+    }
+    .content, aside {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+}
+
 @media (min-width: 1200px) {
     .header-title {
         width: 100%; /* Ancho completo en pantallas pequeñas */
@@ -320,6 +330,10 @@ table {
 }
 
 @media (max-width: 500px) {
+    body{
+        padding: 0 15px; /* Espaciado interno opcional para evitar que el contenido toque los bordes */
+    }
+    
     .header-title h1 {
         font-size: 1rem; /* Tamaño de fuente más pequeño en pantallas muy pequeñas */
     }
