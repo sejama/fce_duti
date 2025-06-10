@@ -50,7 +50,6 @@ body {
     align-items: center;
 }
 
-/* CSS */
 .header-image img {
   width: 100%;
   height: auto;
@@ -108,14 +107,17 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .row-nav {
     background-color: #546ace;
     display: flex;
     width: 100%;
-    padding: 7px 0 7px 0;
+    padding: 0.5rem 0 0.5rem 0;
 }
+
 .header-nav {
     display: flex;
+    width: 100%;
 }
 
 .header-nav nav {
@@ -137,6 +139,9 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-left: auto;
+    justify-content: flex-end;
+    width: auto;
 }
 
 .header-nav a {
@@ -248,8 +253,6 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
-
-
 
 @media (min-width: 1200px) {
     .header-title {
