@@ -18,9 +18,9 @@
                 <div class="header-nav">
                     <nav>
                         <ul class="menu-izq">
-                            <li><a href="#inicio" onclick="cargarSeccion('inicio.html')">Quienes Somos</a></li>
+                            <li><a class="item activo" href="#inicio" onclick="cargarSeccion('inicio.html')">Quienes Somos</a></li>
                             <li>
-                                <a href="#sobre-la-jornada">Cómite Organizador</a>
+                                <a class="item" href="#sobre-la-jornada">Cómite Organizador</a>
                                 <ul class="submenu">
                                     <li><a href="#sede" onclick="cargarSeccion('laJornada_sede.html')">Sede y Cómite Organizador</a></li>
                                     <li><a href="#interesAcademico" onclick="cargarSeccion('laJornada_interesAcademico.html')">Interés Académico</a></li>
@@ -28,7 +28,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#areasTematicas">Presentación de Trabajos</a>
+                                <a class="item" href="#presentacionTrabajo">Presentación de Trabajos</a>
                                 <ul class="submenu">
                                     <li><a href="#areasTematicas" onclick="cargarSeccion('presentacionTrabajo_areaTematica.html')">Áreas Temáticas</a></li>
                                     <li><a href="#modalidadPresentacion" onclick="cargarSeccion('presentacionTrabajo_modalidadPresentacion.html')">Modalidades de Presentación</a></li>
@@ -76,8 +76,12 @@
         function cargarSeccion(archivo) {
             // Ocultar todos los submenús eliminando la clase 'visible'
             const submenus = document.querySelectorAll('.submenu');
+            const items = document.querySelectorAll('.item');
             submenus.forEach(submenu => {
                 submenu.classList.add('force-hide');
+            });
+            items.forEach(item => {
+                item.classList.remove('activo');
             });
             // Cargar la sección seleccionada
             fetch(archivo)
@@ -93,9 +97,25 @@
                     if (archivo.startsWith('presentacionTrabajo_')) {
                         cargarAside();
                         document.getElementById('aside-container').style.display = 'block';
-                    } else {
+                        items.forEach(item => {
+                            if (item.getAttribute('href') === '#presentacionTrabajo') {
+                                item.classList.add('activo');
+                            }
+                        });
+                    } else if (archivo.startsWith('laJornada_')) {
                         document.getElementById('aside-container').innerHTML = '';
                         document.getElementById('aside-container').style.display = 'none';
+                        items.forEach(item => {
+                            if (item.getAttribute('href') === '#sobre-la-jornada') {
+                                item.classList.add('activo');
+                            }
+                        });
+                    } else {
+                        items.forEach(item => {
+                            if (item.getAttribute('href') === '#inicio') {
+                                item.classList.add('activo');
+                            }
+                        });
                     }
                 })
                 .catch(error => {
