@@ -19,14 +19,7 @@
                     <nav>
                         <ul class="menu-izq">
                             <li><a class="item activo" href="#inicio" onclick="cargarSeccion('inicio.html')">Quienes Somos</a></li>
-                            <li>
-                                <a class="item" href="#sobre-la-jornada">Cómite Organizador</a>
-                                <ul class="submenu">
-                                    <li><a href="#sede" onclick="cargarSeccion('laJornada_sede.html')">Sede y Cómite Organizador</a></li>
-                                    <li><a href="#interesAcademico" onclick="cargarSeccion('laJornada_interesAcademico.html')">Interés Académico</a></li>
-                                    <!-- <li><a href="#programa" onclick="cargarSeccion('laJornada_programa.html')">Programa</a></li> -->
-                                </ul>
-                            </li>
+                            <li><a class="item" href="#sede" onclick="cargarSeccion('laJornada_sede.html')">Sede 2025</a></li>
                             <li>
                                 <a class="item" href="#presentacionTrabajo">Presentación de Trabajos</a>
                                 <ul class="submenu">
@@ -36,6 +29,7 @@
                                     <li><a href="#modalidadEvaluacion" onclick="cargarSeccion('presentacionTrabajo_evaluacion.html')">Evaluación</a></li>
                                 </ul>
                             </li>
+                            <li><a class="item" href="#informacion" onclick="cargarSeccion('informacion.html')">Información de Interés</a></li>
                         </ul>
                         <ul class="menu-der">
                             <li><a href="https://duti.unr.edu.ar/index.php/revista" target="_blank" rel="noopener noreferrer">Revista DUTI</a></li>
@@ -106,16 +100,26 @@
                         document.getElementById('aside-container').innerHTML = '';
                         document.getElementById('aside-container').style.display = 'none';
                         items.forEach(item => {
-                            if (item.getAttribute('href') === '#sobre-la-jornada') {
+                            if (item.getAttribute('href') === '#sede') {
                                 item.classList.add('activo');
                             }
                         });
-                    } else {
+                    } else if (archivo === 'inicio.html') {
                         items.forEach(item => {
                             if (item.getAttribute('href') === '#inicio') {
                                 item.classList.add('activo');
                             }
                         });
+                    } else if (archivo === 'informacion.html') {
+                        items.forEach(item => {
+                            if (item.getAttribute('href') === '#informacion') {
+                                item.classList.add('activo');
+                            }
+                        });
+                    } else {
+                        document.getElementById('aside-container').innerHTML = '';
+                        document.getElementById('aside-container').style.display = 'none';
+
                     }
                 })
                 .catch(error => {
