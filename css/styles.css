@@ -275,6 +275,7 @@ aside {
   width: 400px;
   height: 300px;
   border: none;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 /* Responsive: en pantallas chicas, apilar */
