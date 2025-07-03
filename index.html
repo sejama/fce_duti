@@ -68,14 +68,20 @@
         }
 
         function cargarSeccion(archivo) {
-            // Ocultar todos los submenús eliminando la clase 'visible'
+            // Ocultar todos los submenús y cerrar menús móviles
             const submenus = document.querySelectorAll('.submenu');
             const items = document.querySelectorAll('.item');
+            const mobileMenuItems = document.querySelectorAll('.menu-izq > li');
+            
             submenus.forEach(submenu => {
                 submenu.classList.add('force-hide');
             });
             items.forEach(item => {
                 item.classList.remove('activo');
+            });
+            // Cerrar menús móviles
+            mobileMenuItems.forEach(item => {
+                item.classList.remove('active');
             });
             // Cargar la sección seleccionada
             fetch(archivo)
@@ -130,18 +136,97 @@
                 });
         }
 
-        // Quitar la clase force-hide cuando el mouse sale del menú
-        document.querySelectorAll('.menu-izq > li').forEach(item => {
-            item.addEventListener('mouseenter', () => {
+        // Detectar si es un dispositivo móvil
+        function isMobileDevice() {
+            return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+        }
+
+        // Manejar menús desplegables
+        function initializeMenus() {
+            document.querySelectorAll('.menu-izq > li').forEach(item => {
                 const submenu = item.querySelector('.submenu');
+                const link = item.querySelector('a');
+                
                 if (submenu) {
-                    submenu.classList.remove('force-hide');
+                    if (isMobileDevice()) {
+                        // Para móviles: usar click en el enlace principal
+                        link.addEventListener('click', (e) => {
+                            if (e.target.getAttribute('href') === '#presentacionTrabajo') {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                
+                                // Cerrar otros submenús
+                                document.querySelectorAll('.menu-izq > li').forEach(otherItem => {
+                                    if (otherItem !== item) {
+                                        otherItem.classList.remove('active');
+                                    }
+                                });
+                                
+                                // Toggle del menú actual
+                                item.classList.toggle('active');
+                            }
+                        });
+                    } else {
+                        // Para desktop: mantener hover + click en submenú
+                        item.addEventListener('mouseenter', () => {
+                            submenu.classList.remove('force-hide');
+                        });
+                        
+                        item.addEventListener('mouseleave', () => {
+                            setTimeout(() => {
+                                if (!item.matches(':hover')) {
+                                    submenu.classList.add('force-hide');
+                                }
+                            }, 100);
+                        });
+                        
+                        // Manejar clicks en elementos del submenú (desktop)
+                        submenu.querySelectorAll('li a').forEach(subLink => {
+                            subLink.addEventListener('click', () => {
+                                // Ocultar el submenú inmediatamente
+                                submenu.classList.add('force-hide');
+                                
+                                // Remover activo de todos los elementos principales
+                                document.querySelectorAll('.menu-izq .item').forEach(menuItem => {
+                                    menuItem.classList.remove('activo');
+                                });
+                                
+                                // Marcar como activo el elemento padre del submenú
+                                const parentLink = item.querySelector('a');
+                                if (parentLink) {
+                                    parentLink.classList.add('activo');
+                                }
+                            });
+                        });
+                    }
+                    
+                    // Para ambos (móvil y desktop): manejar clicks en elementos del submenú
+                    submenu.querySelectorAll('li a').forEach(subLink => {
+                        subLink.addEventListener('click', () => {
+                            // En móviles, cerrar el menú desplegable
+                            if (isMobileDevice()) {
+                                item.classList.remove('active');
+                            }
+                        });
+                    });
                 }
             });
-        });
+        }
+
+        // Cerrar menús al hacer click fuera (solo móviles)
+        if (isMobileDevice()) {
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.menu-izq')) {
+                    document.querySelectorAll('.menu-izq > li').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+        }
     
         // Cargar la sección inicial al cargar la página
         document.addEventListener('DOMContentLoaded', () => {
+            initializeMenus(); // Inicializar los menús
             cargarSeccion('inicio.html');
         });
 

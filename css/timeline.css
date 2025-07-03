@@ -23,7 +23,7 @@
 
 /* container-lt around content-lt */
 .container-lt {
-  padding: 1px 5px;
+  padding: 1px 8px;
   position: relative;
   background-color: inherit;
   width: 50%;
@@ -33,15 +33,15 @@
 .container-lt::after {
   content: '';
   position: absolute;
-  width: 3px;
-  height: 3px;
-  right: -4px;
+  width: 8px;
+  height: 8px;
+  right: -9px;
   background-color: white;
   border: 2px solid #FF9F55;
-  top: 10px;
+  top: 20px;
   border-radius: 50%;
-  z-index: 1;
-}*/
+  z-index: 0;
+}
 
 /* Place the container-lt to the left */
 .left {
@@ -54,36 +54,36 @@
 }
 
 /* Add arrows to the left container-lt (pointing right) */
-/*.left::before {
+.left::before {
   content: " ";
   height: 0;
   position: absolute;
-  top: 12px;
+  top: 18px;
   width: 0;
-  z-index: 1;
-  right: 0px;
+  z-index: 2;
+  right: 2px;
   border: medium solid #546ace;
-  border-width: 5px 0 5px 5px;
+  border-width: 8px 0 8px 8px;
   border-color: transparent transparent transparent #546ace;
-}*/
+}
 
 /* Add arrows to the right container-lt (pointing left) */
-/*.right::before {
+.right::before {
   content: " ";
   height: 0;
   position: absolute;
-  top: 15px;
+  top: 18px;
   width: 0;
-  z-index: 1;
-  left: 25px;
+  z-index: 2;
+  left: 2px;
   border: medium solid #546ace;
-  border-width: 7px 7px 7px 0;
+  border-width: 8px 8px 8px 0;
   border-color: transparent #546ace transparent transparent;
-}*/
+}
 
 /* Fix the circle for container-lts on the right side */
 .right::after {
-  left: -4px;
+  left: -9px;
 }
 
 /* The actual content-lt */
@@ -133,7 +133,7 @@
 @media screen and (max-width: 600px) {
   /* Place the timelime to the left */
   .timeline::after {
-  left: 31px;
+  left: 48px;
   }
   
   /* Full-width container-lts */
@@ -153,7 +153,7 @@
 
   /* Make sure all circles are at the same spot */
   .left::after, .right::after {
-  left: 15px;
+  left: 42px;
   }
   
   /* Make all right container-lts behave like the left ones */

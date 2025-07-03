@@ -1,6 +1,8 @@
 html {
     scroll-behavior: smooth; /* Habilita desplazamiento suave */
     font-family: arial, sans-serif;
+    /* Tamaño base de fuente responsivo usando clamp() */
+    font-size: clamp(14px, 2.5vw, 16px);
 }
 
 body {
@@ -46,7 +48,7 @@ body {
 .header-title h1 {
     font-family: 'Arial', sans-serif; /* Cambia la fuente a Arial */
     font-weight: bold; /* Cambia el peso de la fuente a negrita */
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 4vw, 2.5rem); /* Responsivo entre móvil y desktop */
     color: #fff; /* Color de texto blanco */
     margin: 0;
     word-wrap: break-word; /* Permite que las palabras largas se dividan */
@@ -57,7 +59,7 @@ body {
     font-family: 'Arial', sans-serif; /* Cambia la fuente a Arial */
     flex: 0 0 auto; /* Ocupa poco espacio */
     text-align: center;
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 2vw, 0.9rem); /* Responsivo para fechas */
     color: #fff;
     margin: auto 10px;
 }
@@ -131,6 +133,7 @@ body {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
+    font-size: clamp(0.8rem, 2.2vw, 1rem); /* Navegación responsiva */
 }
 
 .header-nav a:hover {
@@ -166,8 +169,23 @@ nav ul li .submenu {
     display: none; /* Oculta los submenús por defecto */
 }
 
-nav ul li:hover .submenu {
-    display: block;
+/* Hover para desktop */
+@media (hover: hover) and (pointer: fine) {
+    nav ul li:hover .submenu:not(.force-hide) {
+        display: block;
+    }
+    
+    /* Asegurar que el submenú se mantenga visible mientras se navega por él */
+    nav ul li:hover .submenu {
+        display: block;
+    }
+}
+
+/* Click/touch para móviles */
+@media (hover: none) and (pointer: coarse) {
+    nav ul li.active .submenu {
+        display: block !important; /* Fuerza la visualización */
+    }
 }
 
 .submenu.force-hide {
@@ -181,7 +199,7 @@ nav ul li .submenu li {
 nav ul li .submenu li a {
     text-decoration: none;
     color: #fff;
-    
+    font-size: clamp(0.75rem, 2vw, 0.9rem); /* Submenú responsivo */
 }
 
 nav ul li .submenu li a:hover {
@@ -196,6 +214,8 @@ nav ul li .submenu li a:hover {
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
     display: none; /* Oculta todas las secciones por defecto */
+    font-size: clamp(0.9rem, 2.5vw, 1rem); /* Texto del contenido responsivo */
+    line-height: 1.6; /* Mejor legibilidad */
 }
 
 #inicio {
@@ -225,6 +245,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     margin: 0 0 1rem; /* Espaciado entre la tabla y otros elementos */
+    font-size: clamp(0.8rem, 2.2vw, 0.9rem); /* Tablas responsivas */
   }
   
   td, th {
@@ -253,8 +274,7 @@ aside {
     flex: 0 1 15%;
     padding-top: 1.5rem;
     padding-left: 1.5rem;
-    font-size: 0.9rem;
-    
+    font-size: clamp(0.75rem, 2vw, 0.9rem); /* Aside responsivo */
 }
 
 /* Agrega este CSS */
@@ -279,13 +299,25 @@ aside {
 }
 
 /* Responsive: en pantallas chicas, apilar */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .main-columns {
         flex-direction: column;
     }
     .content, aside {
         max-width: 100%;
         flex: 1 1 100%;
+    }
+    
+    /* Hacer el contenedor responsive */
+    .contenedor {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contenedor iframe {
+        width: 100%;
+        max-width: 400px;
+        height: 250px;
     }
 }
 
@@ -322,35 +354,25 @@ aside {
 
 @media (min-width: 1200px) {
     .header-title {
-        width: 100%; /* Ancho completo en pantallas pequeñas */
-         /* Espaciado reducido */
+        width: 100%; /* Ancho completo en pantallas grandes */
     }
     .header-title h1 {
-        font-size: 2.5rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-        padding: 0.5rem 0 0 0.5rem
-    }
-    .header-fecha h2 {
-        font-size: 1.2rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        padding: 0.5rem 0 0 0.5rem;
     }
     .header-logos img {
-        width: 70%; /* Cambia el tamaño de la imagen en pantallas pequeñas */
+        width: 70%; /* Tamaño optimizado para pantallas grandes */
     }
 }
 
 @media (max-width: 1200px) {
     .header-title {
-        width: 100%; /* Ancho completo en pantallas pequeñas */
-         /* Espaciado reducido */
+        width: 100%; /* Ancho completo en pantallas medianas */
     }
     .header-title h1 {
-        font-size: 2rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-        padding: 0.5rem 0 0 0.5rem
-    }
-    .header-fecha h2 {
-        font-size: 1.2rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        padding: 0.5rem 0 0 0.5rem;
     }
     .header-logos img {
-        width: 70%; /* Cambia el tamaño de la imagen en pantallas pequeñas */
+        width: 70%; /* Tamaño optimizado para pantallas medianas */
     }
 }
 
@@ -360,18 +382,11 @@ aside {
         padding: 10px; /* Reduce el espaciado interno */
     }
 
-    .header-title h1 {
-        font-size: 1.5rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-    }
-    .header-fecha h2 {
-        font-size: .8rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
-    }
-
     .header-logos img {
-        width: 80%; /* Cambia el tamaño de la imagen en pantallas pequeñas */
+        width: 80%; /* Tamaño optimizado para tablets */
     }
+    
     .header-nav ul {
-        
         align-items: center; /* Centra los elementos de la lista */
     }
 
@@ -379,27 +394,17 @@ aside {
         margin: 0 5px; /* Espaciado reducido entre los elementos de la lista */
         text-align: center;
     }
-
-    .header-nav ul a {
-        font-size: 0.7rem; /* Tamaño de fuente más pequeño en pantallas muy pequeñas */
-    }
 }
 
 @media (max-width: 500px) {
-    body{
-        padding: 0 15px; /* Espaciado interno opcional para evitar que el contenido toque los bordes */
-    }
-    
-    .header-title h1 {
-        font-size: 1rem; /* Tamaño de fuente más pequeño en pantallas muy pequeñas */
-    }
-    .header-fecha h2 {
-        font-size: .6rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    body {
+        padding: 0 15px; /* Espaciado interno para evitar que el contenido toque los bordes */
     }
 
     .header-logos img {
-        width: 90%; /* Cambia el tamaño de la imagen en pantallas muy pequeñas */
+        width: 90%; /* Tamaño optimizado para móviles pequeños */
     }
+    
     .header-nav ul {
         align-items: center; /* Centra los elementos de la lista */
         justify-content: center; /* Centra los elementos de la lista */
@@ -409,8 +414,178 @@ aside {
         margin: 0 5px; /* Espaciado reducido entre los elementos de la lista */
         text-align: center;
     }
-
-    .header-nav ul a {
-        font-size: 0.75rem; /* Tamaño de fuente más pequeño en pantallas muy pequeñas */
+    
+    /* Ajustes para el iframe en móviles */
+    .contenedor iframe {
+        width: 100%;
+        height: 200px;
+    }
+    
+    /* Mejoras para submenús en móviles muy pequeños */
+    .menu-izq > li .submenu {
+        right: -10px;
+        min-width: 160px;
+        font-size: 0.85rem;
+    }
+    
+    .menu-izq > li .submenu li {
+        padding: 8px 12px;
     }
 }
+
+/* Ajustes específicos para pantallas muy pequeñas ya están incluidos arriba */
+
+/* Estilos específicos para móviles */
+@media (hover: none) and (pointer: coarse) {
+    .menu-izq > li {
+        position: relative;
+        cursor: pointer;
+    }
+    
+    /* Mantener el mismo estilo que desktop para el submenú */
+    .menu-izq > li .submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: auto;
+        min-width: 200px;
+        background-color: #546ace;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        margin-top: 2px;
+        z-index: 1000;
+    }
+    
+    .menu-izq > li .submenu li {
+        padding: 10px 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        white-space: nowrap;
+    }
+    
+    .menu-izq > li .submenu li:last-child {
+        border-bottom: none;
+    }
+    
+    .menu-izq > li .submenu li a {
+        display: block;
+        width: 100%;
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .menu-izq > li .submenu li a:hover {
+        color: #333;
+    }
+}
+
+/* Mejoras adicionales para navegación móvil */
+@media (max-width: 768px) {
+    .menu-izq > li.active .submenu {
+        display: block !important;
+        animation: fadeIn 0.2s ease-out;
+    }
+    
+    /* Asegurar que el submenú se posicione correctamente en pantallas pequeñas */
+    .menu-izq > li .submenu {
+        right: 0;
+        left: auto;
+        min-width: 180px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos para elementos activos en submenús */
+.submenu li a.activo {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+/* Transición suave para desktop */
+@media (hover: hover) and (pointer: fine) {
+    nav ul li .submenu {
+        transition: opacity 0.2s ease-in-out;
+    }
+    
+    nav ul li .submenu.force-hide {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+/* Tipografía responsiva para títulos y elementos de contenido */
+h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+}
+
+h3 {
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+}
+
+h4 {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+h5, h6 {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    line-height: 1.5;
+    margin-bottom: 0.4rem;
+}
+
+p {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para elementos de lista */
+li {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    line-height: 1.5;
+}
+
+/* Botones responsivos */
+button, .button {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 24px);
+}
+
+/* 
+* SISTEMA DE TIPOGRAFÍA RESPONSIVA
+* 
+* Este CSS utiliza la función clamp() para crear un sistema de tipografía
+* completamente responsivo que se adapta fluidamente a todos los tamaños de pantalla.
+* 
+* Beneficios:
+* - Reduce la necesidad de múltiples media queries
+* - Proporciona escalado fluido entre breakpoints
+* - Mejora la legibilidad en todos los dispositivos
+* - Mantiene proporciones visuales consistentes
+* 
+* Sintaxis clamp(): clamp(min, preferido, max)
+* - min: valor mínimo (móviles)
+* - preferido: valor flexible (usando vw para escalado)
+* - max: valor máximo (desktop)
+*/
