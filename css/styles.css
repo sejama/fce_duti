@@ -569,7 +569,7 @@ li {
 /* Botones responsivos */
 button, .button {
     font-size: clamp(0.9rem, 2.5vw, 1rem);
-    padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 24px);
+    padding: clamp(2px, 0.5vw, 3px) clamp(4px, 1vw, 6px);
 }
 
 /* 
