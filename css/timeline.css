@@ -88,7 +88,7 @@
 
 /* The actual content-lt */
 .content-lt {
-  padding: 8px 12px;
+  padding: 6px 10px;
   background-color: #546ace;
   position: relative;
   border-radius: 4px;
@@ -102,7 +102,31 @@
 
 .container-lt h2 {
   font-size: 0.8rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
+}
+
+/* Custom scrollbar styles for timeline container */
+.contenedor-inicio > div:last-child::-webkit-scrollbar {
+  width: 8px;
+}
+
+.contenedor-inicio > div:last-child::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.contenedor-inicio > div:last-child::-webkit-scrollbar-thumb {
+  background: #546ace;
+  border-radius: 4px;
+}
+
+.contenedor-inicio > div:last-child::-webkit-scrollbar-thumb:hover {
+  background: #3d5ab8;
+}
+
+/* Smooth scrolling for timeline */
+.contenedor-inicio > div:last-child {
+  scroll-behavior: smooth;
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
