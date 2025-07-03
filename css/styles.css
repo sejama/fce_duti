@@ -303,7 +303,7 @@ aside {
 
 .contenedor-inicio > div:last-child {
     flex: 0 1 35%;
-    max-height: 450px; /* Altura máxima para el timeline */
+    max-height: 500px; /* Altura máxima para el timeline */
     overflow-y: auto; /* Scroll vertical */
     padding-right: 10px; /* Espacio para la barra de scroll */
 }
