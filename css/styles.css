@@ -626,3 +626,8 @@ nav, button, .button, footer,
     color: #d32f2f; /* Rojo */
     font-weight: bold;
 }
+
+.disponible {
+    color: #388e3c; /* Verde */
+    font-weight: bold;
+}
