@@ -685,7 +685,8 @@ nav, button, .button, footer,
 .tabla-costos-inscripcion {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 50%;
+    width: 70%;
+    max-width: 600px;
     margin: 1.5rem auto; /* Centra la tabla horizontalmente */
     font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -734,7 +735,8 @@ nav, button, .button, footer,
 /* Responsive para tabla de costos de inscripción */
 @media (max-width: 768px) {
     .tabla-costos-inscripcion {
-        width: 95%;
+        width: 90%;
+        max-width: none;
         font-size: 0.85rem;
     }
     
@@ -745,6 +747,22 @@ nav, button, .button, footer,
     
     .tabla-costos-inscripcion th {
         font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tabla-costos-inscripcion {
+        width: 95%;
+        font-size: 0.8rem;
+    }
+    
+    .tabla-costos-inscripcion th,
+    .tabla-costos-inscripcion td {
+        padding: 8px 6px;
+    }
+    
+    .tabla-costos-inscripcion th {
+        font-size: 0.85rem;
     }
 }
 
