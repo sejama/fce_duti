@@ -778,7 +778,7 @@ nav, button, .button, footer,
 
 .titulo-incluye {
     color: #2e8cc2;
-    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
     font-weight: bold;
     margin: 0 0 15px 0;
     text-align: left;
@@ -793,7 +793,7 @@ nav, button, .button, footer,
 .lista-incluye li {
     position: relative;
     padding: 8px 0 8px 30px;
-    font-size: clamp(0.9rem, 2.2vw, 1rem);
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
     line-height: 1.5;
     color: #333;
     text-align: left;
@@ -820,9 +820,36 @@ nav, button, .button, footer,
         margin: 1rem 0;
     }
     
+    .titulo-incluye {
+        font-size: 0.9rem;
+    }
+    
     .lista-incluye li {
         padding: 6px 0 6px 25px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-matricula {
+        padding: 12px;
+        margin: 0.8rem 0;
+    }
+    
+    .titulo-incluye {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+    
+    .lista-incluye li {
+        padding: 5px 0 5px 22px;
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+    
+    .lista-incluye li::before {
+        font-size: 1em;
+        top: 5px;
     }
 }
 
