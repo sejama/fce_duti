@@ -242,24 +242,6 @@ footer{
     text-align: justify; /* Justifica el contenido de las listas */
 }
 
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    margin: 0 0 1rem; /* Espaciado entre la tabla y otros elementos */
-    font-size: clamp(0.8rem, 2.2vw, 0.9rem); /* Tablas responsivas */
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: .3rem;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-
   .main-columns {
     display: flex;
     align-items: flex-start;
@@ -630,4 +612,259 @@ nav, button, .button, footer,
 .disponible {
     color: #388e3c; /* Verde */
     font-weight: bold;
+}
+
+/* Estilos específicos para la tabla de formato de trabajos */
+.tabla-formato-trabajos {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 1.5rem auto; /* Centra la tabla horizontalmente */
+    font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-formato-trabajos th {
+    background-color: #2e8cc2;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 12px;
+    border: none;
+    font-size: clamp(0.85rem, 2.2vw, 1rem);
+}
+
+.tabla-formato-trabajos td {
+    text-align: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 500;
+}
+
+.tabla-formato-trabajos tbody tr:nth-child(even) {
+    background-color: #f5f7fa;
+}
+
+.tabla-formato-trabajos tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.tabla-formato-trabajos tbody tr:hover {
+    background-color: #e3f2fd;
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+}
+
+/* Primera columna (Elemento) con estilo especial */
+.tabla-formato-trabajos td:first-child {
+    font-weight: bold;
+    text-align: left;
+    color: #2e8cc2;
+}
+
+/* Responsive para tabla de formato de trabajos */
+@media (max-width: 768px) {
+    .tabla-formato-trabajos {
+        width: 95%;
+        font-size: 0.75rem;
+    }
+    
+    .tabla-formato-trabajos th,
+    .tabla-formato-trabajos td {
+        padding: 8px 6px;
+    }
+    
+    .tabla-formato-trabajos th {
+        font-size: 0.8rem;
+    }
+}
+
+/* Estilos específicos para la tabla de costos de inscripción */
+.tabla-costos-inscripcion {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin: 1.5rem auto; /* Centra la tabla horizontalmente */
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-costos-inscripcion th {
+    background-color: #546ace;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 20px;
+    border: none;
+    font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+}
+
+.tabla-costos-inscripcion td {
+    text-align: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 500;
+}
+
+.tabla-costos-inscripcion tbody tr:nth-child(even) {
+    background-color: #f5f7fa;
+}
+
+.tabla-costos-inscripcion tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.tabla-costos-inscripcion tbody tr:hover {
+    background-color: #e8f0fe;
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+}
+
+/* Primera columna (Categorías) con estilo especial */
+.tabla-costos-inscripcion td:first-child {
+    font-weight: bold;
+    text-align: left;
+    color: #2e8cc2;
+}
+
+/* Responsive para tabla de costos de inscripción */
+@media (max-width: 768px) {
+    .tabla-costos-inscripcion {
+        width: 95%;
+        font-size: 0.85rem;
+    }
+    
+    .tabla-costos-inscripcion th,
+    .tabla-costos-inscripcion td {
+        padding: 10px 8px;
+    }
+    
+    .tabla-costos-inscripcion th {
+        font-size: 0.9rem;
+    }
+}
+
+/* Estilos para la información de matrícula */
+.info-matricula {
+    background-color: #f8f9fa;
+    border-left: 4px solid #2e8cc2;
+    padding: 20px;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-incluye {
+    color: #2e8cc2;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    text-align: left;
+}
+
+.lista-incluye {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-incluye li {
+    position: relative;
+    padding: 8px 0 8px 30px;
+    font-size: clamp(0.9rem, 2.2vw, 1rem);
+    line-height: 1.5;
+    color: #333;
+    text-align: left;
+}
+
+.lista-incluye li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    color: #388e3c;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.lista-incluye li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive para información de matrícula */
+@media (max-width: 768px) {
+    .info-matricula {
+        padding: 15px;
+        margin: 1rem 0;
+    }
+    
+    .lista-incluye li {
+        padding: 6px 0 6px 25px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Estilos para el botón de inscripción */
+.contenedor-boton-inscripcion {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.boton-inscripcion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #546ace 0%, #2e8cc2 100%);
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    box-shadow: 0 6px 20px rgba(84, 106, 206, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.boton-inscripcion:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(84, 106, 206, 0.4);
+    background: linear-gradient(135deg, #2e8cc2 0%, #546ace 100%);
+}
+
+.boton-inscripcion:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(84, 106, 206, 0.3);
+}
+
+.icono-inscripcion {
+    font-size: 1.3em;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive para botón de inscripción */
+@media (max-width: 768px) {
+    .boton-inscripcion {
+        padding: 12px 25px;
+        font-size: 1rem;
+        gap: 8px;
+    }
+    
+    .icono-inscripcion {
+        font-size: 1.2em;
+    }
 }
